@@ -27,7 +27,7 @@ function showAllPokemons(data) {
         let pokeHp = document.createElement('h3')
         pokeHp.className = "pokemonHp"
         pokeHp.textContent = data[i].hp
-        let pokeContainer = document.getElementsByClassName('all-pokemons-container')
+        let pokeContainer = document.querySelector('.all-pokemons-container')
         actualPoke.appendChild(pokeName)
         actualPoke.appendChild(pokeType)
         actualPoke.appendChild(pokeHp)
