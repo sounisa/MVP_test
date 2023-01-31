@@ -17,9 +17,9 @@ app.route('/pokemons')
     })
     .post(async (req, res) =>{
         try {
-            console.log(req.body)
-            await client.query(`INSERT INTO pokemons (name, type, hp) VALUES ('${body.name}', '${body.type}', '${body.hp}')`); //creating
-            res.status(200).type('application/json').json(body); 
+            console.log(req[body])
+            // await client.query(`INSERT INTO pokemons (name, type, hp) VALUES ('${body.name}', '${body.type}', '${body.hp}')`); //creating
+            // res.status(200).type('application/json').json(body); 
         } catch (error) {
             res.status(500).type('text/plain').send(error.message)
         }
