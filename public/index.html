@@ -5,7 +5,8 @@
     <title>My Server</title>
     <script async src="app.js"></script>
     <link rel='stylesheet' href='styles.css'/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
     <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
@@ -23,29 +24,47 @@
     </div>
     <div class='header-container'>
         <div class='header'>
-					<div class =view-all>
-						<form action="/action_page.php">
-  					<label for="pokemons">All Pokemons:</label>
-  						<select name="pokemons" id="ALL">
-								<option value="charmander">Charmander</option>
-  						</select>
-  						<input type="submit" value="Submit">
-						</form>
-					</div>
           <div class='logo'><span class ="first-letter">P</span>okedex</div>
-          <div class='social'><img src='images/social-icons.svg'/></div>
 				</div>
     </div>
-    <div>
-        <input type="text" name='name'>
-        <input type="text" name='type'>
-        <input type="number" name='hp'>
+    <form id ="post-pokemon" method="POST" action="/pokemons">
+        <label for="name">New Pokemon</label>
+        <input type="text" name="name" value="">
+        <label for="type">Type</label>
+        <input type="text" name="type">
+        <label for="hp">HP</label>
+        <input type="text" name="hp">
         <button id="post-btn">Submit</button>
-    </div>
+    </form>
+    
     <div class="DivToScroll">
         <div class="DivWithScroll">
-           Pokemons Showing
-
+            <div class='all-pokemons-container'>
+                <span class='pokemon-card'>
+                    <div class='pokemon'>
+                        <h1>Example</h1>
+                        <img src=/>
+                    </div>
+                </span>
+                <div class='pokemon-card'>
+                    <span class='pokemon'>
+                        <h1>Example</h1>
+                        <img src=/>
+                    </span>
+                </div>
+                <div class='pokemon-card'>
+                    <span class='pokemon'>
+                        <h1>Example</h1>
+                        <img src=/>
+                    </span>
+                </div>
+                <div class='pokemon-card'>
+                    <span class='pokemon'>
+                        <h1>Example</h1>
+                        <img src=/>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
   </body>
