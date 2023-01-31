@@ -14,7 +14,13 @@ app.route('/pokemons')
             res.status(500).type('text/plain').send(error.message)//error from DB
         }
     })
-
+    .post(async (req, res) =>{
+        try {
+            
+        } catch (error) {
+            res.status(500).type('text/plain').send(error.message)
+        }
+    })
 
 
 app.use(express.static('./public'));

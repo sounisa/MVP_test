@@ -5,6 +5,7 @@
     <title>My Server</title>
     <script async src="app.js"></script>
     <link rel='stylesheet' href='styles.css'/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
@@ -16,7 +17,7 @@
           <div class='home-container'>HOME LOGO</div>
           <div id="searchBar">
             <input type="text" name='search'>
-            <button id="submit">Search</button>
+            <button id="search-btn">Search</button>
           </div>
         </div>
     </div>
@@ -34,6 +35,12 @@
           <div class='logo'><span class ="first-letter">P</span>okedex</div>
           <div class='social'><img src='images/social-icons.svg'/></div>
 				</div>
+    </div>
+    <div>
+        <input type="text" name='name'>
+        <input type="text" name='type'>
+        <input type="number" name='hp'>
+        <button id="post-btn">Submit</button>
     </div>
     <div class="DivToScroll">
         <div class="DivWithScroll">
