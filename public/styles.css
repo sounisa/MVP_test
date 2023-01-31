@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .menu-container { /*MENU*/
+    color: #fff;
+    background-color: rgb(45, 45, 134);
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .menu {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .links {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .login {
+    margin-left: 20px;
+  }
+
+  .header-container { /*Where Pokemon word is*/
+    color: rgb(45, 45, 134);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .header {
+    width: 900px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Pokemon Solid', sans-serif;
+    font-size: 800%;
+    -webkit-text-fill-color: rgb(232, 201, 24);
+    -webkit-text-stroke-color: rgb(45, 45, 134);
+    -webkit-text-stroke-width: 8px;
+    letter-spacing: .05em;
+
+  }
+
+  .first-letter {
+    font-size: 150%;
+    letter-spacing: -.08em;
+  }
+  
+  .view-all {
+    align-self: flex-end;
+    margin-bottom: 20px;
+  }
+
+  .DivToScroll{   
+    background-color: #F5F5F5;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 0 4px 0;
+    color: #3B3C3E;
+    font-size: 12px;
+    font-weight: bold;
+    left: -1px;
+    padding: 10px 7px 5px;
+}
+
+    .DivWithScroll{
+    height:300px;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+  .photo-grid-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .photo-grid {
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .photo-grid-item {
+    border: 1px solid #fff;
+    width: 300px;
+    height: 300px;
+  }
+
+  .first-item {
+    order: 1;
+  }
+  
+  .last-item {
+    order: -1;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .footer-item {
+    border: 1px solid #fff;
+    background-color: #D6E9FE;
+    height: 200px;
+    flex: 1;
+  }
+
+  .footer-one,
+.footer-three {
+  background-color:rgb(45, 45, 134);
+  flex: initial;
+  width: 300px;
+}
+
+.signup {
+  margin-left: auto;
+}
+      

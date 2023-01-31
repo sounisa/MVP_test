@@ -15,6 +15,10 @@ app.route('/pokemons')
         }
     })
 
+
+
+app.use(express.static('./public'));
+
 //listener on port
 app.listen(port,() => {
     console.log(`Listening on Port: ${port}`)
