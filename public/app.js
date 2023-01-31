@@ -10,7 +10,6 @@ async function getData() {
 
 }
 
-
 function showAllPokemons(data) {
     for (let i = 0; i < data.length; i++) {
         let pokeCard = document.createElement('span')
@@ -36,3 +35,6 @@ function showAllPokemons(data) {
     }
 }
 
+function postData(){
+    
+}
