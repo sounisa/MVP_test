@@ -1,7 +1,7 @@
 const { Pool } = require("pg");
 
 const dbConfig = {
-    connectionString: process.env.LOCAL
+    connectionString: process.env.DATABASE_URL
 }
 
 const client = new Pool(dbConfig);
