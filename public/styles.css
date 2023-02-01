@@ -18,30 +18,25 @@
     justify-content: space-between;
   }
 
-  .header-container { /*Where Pokemon word is*/
-    color: rgb(45, 45, 134);
-    background-color: white;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .header {
-    width: 900px;
-    height: 300px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .home-container { /*Pokedex logo button*/
+    font-family: 'Pokemon Solid', sans-serif;
   }
 
-  .logo {
+  .header-container { /*Where Pokedex word is*/
+    color: rgb(45, 45, 134);
+    background-color: white;
+    text-align: center;
+    
+  }
+
+  .logo { /*Pokedex word*/
     font-family: 'Pokemon Solid', sans-serif;
     font-size: 800%;
     -webkit-text-fill-color: rgb(232, 201, 24);
     -webkit-text-stroke-color: rgb(45, 45, 134);
     -webkit-text-stroke-width: 8px;
     letter-spacing: .05em;
-    
-
+    align-self: center;
   }
 
   .first-letter {
@@ -55,40 +50,52 @@
   }
 
   .DivToScroll{   
-    width: 350px;
-    background-color: #F5F5F5;
+    width:auto;
+    height:max-content;
+    background-color: rgb(45, 45, 134);
     border: 1px solid #DDDDDD;
     border-radius: 4px 0 4px 0;
     color: #3B3C3E;
-    font-size: 12px;
-    font-weight: bold;
     left: -1px;
     padding: 10px 7px 5px;
+    
 }
 
    .DivWithScroll{
-    height:300px;
-    width: 330px;
+    background-color: rgb(45, 45, 134);
+    height:400px;
+    width: auto;
     overflow:scroll;
     overflow-x:hidden;
 }
   .all-pokemons-container {
+    height: 400px;
+    background-color: rgb(45, 45, 134);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
   .pokemon-card {
-    width: 900px;
+    background-color: white;
     display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
+    width: 700px;
+    height: 300px;
+    
+    
   }
-  
+
   .pokemon {
     border: 1px solid black;
-    width: 300px;
+    width: 900px;
     height: 300px;
+  }
+
+  .pokeName { /*styling pokemons actual name*/
+    font-family: 'Pokemon Solid', sans-serif;
+    letter-spacing: .05em;
+    font-size: 500%;
   }
 
   .footer {
@@ -109,3 +116,4 @@
   flex: initial;
   width: 300px;
 }
+

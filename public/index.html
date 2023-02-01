@@ -15,7 +15,7 @@
   <body>
     <div class='menu-container'>
         <div class='menu'>
-          <div class='home-container'>HOME LOGO</div>
+          <div class='home-container'>Pokedex</div>
           <div id="searchBar">
             <input type="text" name='search'>
             <button id="search-btn">Search</button>
@@ -23,49 +23,26 @@
         </div>
     </div>
     <div class='header-container'>
-        <div class='header'>
-          <div class='logo'><span class ="first-letter">P</span>okedex</div>
-				</div>
+        <div class='logo'><span class ="first-letter">P</span>okedex</div>
     </div>
-    <form id ="post-pokemon" method="POST" action="/pokemons">
-        <div class =post-container>
-            <label for="name">New Pokemon</label>
-            <input type="text" name="name">
-            <label for="type">Type</label>
-            <input type="text" name="type">
-            <label for="hp">HP</label>
-            <input type="text" name="hp">
-            <button type="submit" id="post-btn" value ="add">Submit</button>
-        </div>
-    </form>
-    
     <div class="DivToScroll">
         <div class="DivWithScroll">
             <div class='all-pokemons-container'>
                 <span class='pokemon-card'>
-                    <div class='pokemon'>
-                        <h1>Example</h1>
-                        <img src=/>
-                    </div>
+                    <div class = "pokeName">Pikachu</div>
+                    <div class = "pokeType">Electric</div>
+                    <div class="pokeHp">20 HP</div>
                 </span>
-                <div class='pokemon-card'>
-                    <span class='pokemon'>
-                        <h1>Example</h1>
-                        <img src=/>
-                    </span>
-                </div>
-                <div class='pokemon-card'>
-                    <span class='pokemon'>
-                        <h1>Example</h1>
-                        <img src=/>
-                    </span>
-                </div>
-                <div class='pokemon-card'>
-                    <span class='pokemon'>
-                        <h1>Example</h1>
-                        <img src=/>
-                    </span>
-                </div>
+                <span class='pokemon-card'>
+                    <div class = "pokeName">Example</div>
+                    <div class = "pokeType">Type</div>
+                    <div class="pokeHp">0 HP</div>
+                </span>
+                <span class='pokemon-card'>
+                    <div class = "pokeName">Example</div>
+                    <div class = "pokeType">Type</div>
+                    <div class="pokeHp">20 HP</div>
+                </span>
             </div>
         </div>
     </div>

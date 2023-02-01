@@ -15,45 +15,33 @@ function showAllPokemons(data) {
         let pokeCard = document.createElement('span')
         pokeCard.className = "pokemon-card"
         pokeCard.id = data[i].name
-        let actualPoke = document.createElement('div')
-        actualPoke.className = "pokemon"
-        let pokeName = document.createElement('h1')
-        pokeName.className = "pokemonName"
+        //if data[i].type === 'Grass' background style = green
+        //let actualPoke = document.createElement('div')
+        //actualPoke.className = "pokemon"
+        let pokeName = document.createElement('div')
+        pokeName.className = "pokeName"
         pokeName.textContent = data[i].name
-        let pokeType = document.createElement('h3')
-        pokeType.className = "pokemonType"
+        let pokeType = document.createElement('div')
+        pokeType.className = "pokeType"
         pokeType.textContent = data[i].type
-        let pokeHp = document.createElement('h3')
-        pokeHp.className = "pokemonHp"
-        pokeHp.textContent = data[i].hp
+        let pokeHp = document.createElement('div')
+        pokeHp.className = "pokeHp"
+        pokeHp.textContent = `${data[i].hp} HP`
         let pokeContainer = document.querySelector('.all-pokemons-container')
-        actualPoke.appendChild(pokeName)
-        actualPoke.appendChild(pokeType)
-        actualPoke.appendChild(pokeHp)
+        pokeCard.appendChild(pokeName)
+        pokeCard.appendChild(pokeType)
+        pokeCard.appendChild(pokeHp)
         pokeCard.appendChild(actualPoke)
         pokeContainer.appendChild(pokeCard)
+        changeColor(data)
     }
 }
 
 
-$("#post-btn").on("click", function () {
-    let searchText = $("input").val();
-    console.log(searchText)
-  });
-// function postData(){
-//     const postButton = document.querySelector("#post-btn")
-//     postButton.addEventListener('submit', (e) => {
-//         e.preventDefault();
-//         const formData = new FormData(postData) //taking all info from form
-//         const data = Object.fromEntries(formData) //puting it in object
-//         console.log(data)
-
-//         fetch('/pokemons', { //URL we are posting to
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/JSON'
-//             },
-//             body: JSON.stringify(data)//stringify the data
-//         })
-//     })
-// }
+function changeColor(data) {
+    for (i = 0; i < data.length; i++){
+        if (data[i].type.toLowerCase() === water){
+            pokeCard.style.backgroundColor = "green";
+        }
+    }
+}
