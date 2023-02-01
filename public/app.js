@@ -31,7 +31,6 @@ function showAllPokemons(data) {
         pokeCard.appendChild(pokeName)
         pokeCard.appendChild(pokeType)
         pokeCard.appendChild(pokeHp)
-        pokeCard.appendChild(actualPoke)
         pokeContainer.appendChild(pokeCard)
         changeColor(data)
     }
