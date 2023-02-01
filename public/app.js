@@ -7,7 +7,7 @@ async function getData() {
     const data = await response.json() 
     console.log(data)
     showAllPokemons(data)
-
+    postData()
 }
 
 function showAllPokemons(data) {
@@ -36,5 +36,19 @@ function showAllPokemons(data) {
 }
 
 function postData(){
-    
+    const postButton = document.querySelector("#post-btn")
+    postButton.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(postData) //taking all info from form
+        const data = Object.fromEntries(formData) //puting it in object
+        console.log(data)
+
+        fetch('/pokemons', { //URL we are posting to
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/JSON'
+            },
+            body: JSON.stringify(data)//stringify the data
+        })
+    })
 }

@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
 const client = require('./db')
-console.log(__dirname)
+const dotenv = require("dotenv")
+dotenv.config()
 
 app.use(express.json()) //middleware PARSES JSON REQUESTS, gives access to parsed data in req.body
 //route
