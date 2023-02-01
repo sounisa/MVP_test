@@ -39,7 +39,7 @@ function showAllPokemons(data) {
 
 function changeColor(data) {
     for (i = 0; i < data.length; i++){
-        if (data[i].type.toLowerCase() === water){
+        if (data[i].type.toLowerCase() === 'water'){
             pokeCard.style.backgroundColor = "green";
         }
     }
