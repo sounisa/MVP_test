@@ -1,20 +1,7 @@
-
 const postBtn = document.querySelector("#postbtn")
 let deleteThis = document.querySelectorAll(".x")
+
 getData()
-
-$('#show').on('click', function () { //add new pokemon button
-    $('.logo').hide();
-    $('.center').show();
-})
-
-
-
-$('#close-postbtn').on('click', function () { //X on form
-    $('.center').hide();
-    $('.logo').show();
-    $('#show').show();
-})
 
 //GET ALL
 async function getData() {
@@ -67,6 +54,12 @@ function showAllPokemons(data) {
     }
 }
 
+$('#show').on('click', function () { //add new pokemon button
+    $('.logo').hide();
+    $('.center').show();
+})
+
+
 //add New Pokemon Button, get values, post new pokemon
 postBtn.addEventListener("click", function (e) {
     e.preventDefault();
@@ -81,12 +74,16 @@ postBtn.addEventListener("click", function (e) {
     window.location.reload();
 });
 
+$('#close-postbtn').on('click', function () { //X on form
+    $('.center').hide();
+    $('.logo').show();
+    $('#show').show();
+})
+
 //POST
 async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
-    let color = assignColor(newPokeType)
-    let logo = assignLogo(newPokeType)
-    console.log(color)
-    console.log(logo)
+    console.log(assignColor(newPokeType))
+    console.log(assignLogo(newPokeType))
     const options = {
         method: 'POST',
         headers: {
@@ -96,9 +93,9 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
         body: JSON.stringify({
             "name": newPokeName,
             "type": newPokeType,
-            "hp": newPokeHp,
-            "color": assignColor(newPokeType),//calls assigncolor function
-            "img": assignLogo(newPokeType) //calls assignlogo function
+            "hp": newPokeHp
+           // "color": assignColor(newPokeType),//calls assigncolor function
+            //"img": assignLogo(newPokeType) //calls assignlogo function
         })
     }
     const response = await fetch('/pokemons', options)
@@ -123,6 +120,7 @@ async function deletePokemon(deleteBtn) {
     const dataAfterDelete = await response.json() 
     console.log(dataAfterDelete)
 }
+
 
 
 //assign color to pokemon type
