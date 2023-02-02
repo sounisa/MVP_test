@@ -68,6 +68,7 @@ postBtn.addEventListener("click", function (e) {
 });
 //POST
 async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
+    let color = assignColor(newPokeType)
     const options = {
         method: 'POST',
         headers: {
@@ -78,7 +79,7 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
             "name": newPokeName,
             "type": newPokeType,
             "hp": newPokeHp,
-            "color": assignColor(newPokeType)
+            "color": color
         })
     }
     const response = await fetch('/pokemons', options)
