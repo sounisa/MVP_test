@@ -1,4 +1,4 @@
-const swal = require("sweetalert");
+
 const postBtn = document.querySelector("#postbtn")
 let deleteThis = document.querySelectorAll(".x")
 console.log(document.querySelectorAll(".x"))
