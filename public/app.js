@@ -24,7 +24,6 @@ async function getData() {
     const data = await response.json() 
     console.log(data)
     showAllPokemons(data)
-    addToData(data)
 }
 
 function showAllPokemons(data) {
@@ -46,6 +45,10 @@ function showAllPokemons(data) {
         pokeHp.className = "pokeHp"
         pokeHp.textContent = `${data[i].hp} HP`
 
+        let pokeImg = document.createElement ('img')//Pokemon's Type Img
+        pokeImg.className = 'pokeImg'
+        pokeImg.src = data[i].img
+
         let deleteBtn = document.createElement('button')//delete button
         deleteBtn.className= "x"
         deleteBtn.id = data[i].id
@@ -56,11 +59,12 @@ function showAllPokemons(data) {
         let pokeContainer = document.querySelector('.all-pokemons-container')
         pokeCard.appendChild(deleteBtn)
         pokeCard.appendChild(pokeName)
+        pokeCard.appendChild(pokeImg)
         pokeCard.appendChild(pokeType)
         pokeCard.appendChild(pokeHp)
 
         let color = data[i].color
-        changeColor(color, pokeCard) //changes color of font based off pokemon type
+        pokeCard.style.color = data[i].color //changes color of font based off pokemon type
         pokeContainer.appendChild(pokeCard)
     }
 }
@@ -91,8 +95,8 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
             "name": newPokeName,
             "type": newPokeType,
             "hp": newPokeHp,
-            "color": assignColor(newPokeType),
-            "img": assignLogo(newPokeType)
+            "color": assignColor(newPokeType),//calls assigncolor function
+            "img": assignLogo(newPokeType) //calls assignlogo function
         })
     }
     const response = await fetch('/pokemons', options)
@@ -118,10 +122,6 @@ async function deletePokemon(deleteBtn) {
     console.log(dataAfterDelete)
 }
 
-//change color of front
-function changeColor(color, pokeCard){
-    //if (color ===)
-}
 
 //assign color to pokemon type
 function assignColor(newPokeType){
@@ -144,7 +144,7 @@ function assignColor(newPokeType){
     }
     
 }
-
+//assign logo
 function assignLogo(newPokeType){
     if (newPokeType.toLowerCase() === "dark") {
          return 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Pok%C3%A9mon_Dark_Type_Icon.svg/240px-Pok%C3%A9mon_Dark_Type_Icon.svg.png'
