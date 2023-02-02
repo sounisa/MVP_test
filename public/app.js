@@ -68,7 +68,7 @@ postBtn.addEventListener("click", function (e) {
     postNewPokemon(newPokeName, newPokeType, newPokeHp, color)
 });
 //POST
-async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
+async function postNewPokemon(newPokeName, newPokeType, newPokeHp, color) {
     const options = {
         method: 'POST',
         headers: {
