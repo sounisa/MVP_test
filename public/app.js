@@ -71,7 +71,6 @@ postBtn.addEventListener("click", function (e) {
     const newPokeHp = document.getElementById('pokemon-hp').value
     alert(`${newPokeType} Type Pokemon: ${newPokeName} with HP: ${newPokeHp} was added to your Pokedex`)
     postNewPokemon(newPokeName, newPokeType, newPokeHp)
-    window.location.reload();
 });
 
 $('#close-postbtn').on('click', function () { //X on form
@@ -93,13 +92,14 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
         body: JSON.stringify({
             "name": newPokeName,
             "type": newPokeType,
-            "hp": newPokeHp
-           // "color": assignColor(newPokeType),//calls assigncolor function
-            //"img": assignLogo(newPokeType) //calls assignlogo function
+            "hp": newPokeHp,
+            "color": assignColor(newPokeType),//calls assigncolor function
+            "img": assignLogo(newPokeType) //calls assignlogo function
         })
     }
     const response = await fetch('/pokemons', options)
     const newData = await response.json()
+    window.location.reload();
 }
 
 //adds event listener to x attached to that pokemoncard, if clicked, deletes pokemon
