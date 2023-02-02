@@ -103,7 +103,6 @@ async function deletePokemon(deleteBtn) {
     const response = await fetch(`/pokemons/${deleteBtn.id}`, options)
     const sqlQuery = await response.json() 
     const dataAfterDelete = await response.json() 
-    console.log(dataAfterDelete)
 }
 
 

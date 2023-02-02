@@ -27,9 +27,9 @@
     </div>
     <div class="center hideform">
     <button id="close-postbtn" style="float: right;">X</button>
-    <form action="newPokemonForm">
+    <form class="newPokemonForm">
         <div id="nameDiv">
-            <label for="pokemon-name">Pokemon's Name</label>
+            <label for="pokemon-name">Pokemon's Name:</label>
             <input id="pokemon-name" type="text" class="validate" required maxlength="12">
         </div>
         <div id="typeDiv">
@@ -45,7 +45,7 @@
             </select>
         </div>
         <div id="hpDiv">
-            <label for="pokemon-hp">Pokemon's HP</label>
+            <label for="pokemon-hp">Pokemon's HP:</label>
             <select name="pokemon-hp" id="pokemon-hp">
                 <option value="10">10 HP</option>
                 <option value="20">20 HP</option>
@@ -61,10 +61,10 @@
         </div>
         <div id="postbtnDiv">
             <button id="postbtn" type="submit">Submit</button>
-        </div> 
+        </div>
         </form>
     </div>
-    <button id="show">Add New Pokemon</button>    
+    <button id="show"><img src="pokeball.png"></button>    
     <div class="DivToScroll">
         <div class="DivWithScroll">
             <div class='all-pokemons-container'>

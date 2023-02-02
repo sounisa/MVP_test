@@ -54,6 +54,7 @@
     width: 60%;
     height: 269px;
     padding: 20px;
+    padding-top: 6em;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -62,6 +63,7 @@
     display: none;
   }
   
+
   #close-postbtn{
     width:20px;
     position: relative;
@@ -69,6 +71,20 @@
     background: red;
     color: white;
     cursor: pointer;
+    top: -80px
+  }
+
+  #show {
+    position: absolute;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: none;
+    top: 180px;
+    right: 850px
+  }
+
+  .newPokemonForm{
+    font-size: x-large;
   }
 
   .DivToScroll{   
@@ -124,9 +140,12 @@
     font-size: 500%;
   }
 
-  .pokeImg {
-    width: 10%;
-    align-self: center;
+  .pokeType {
+    font-size: 200%;
+  }
+
+  .pokeHp {
+    font-size: 200%;
   }
 
   .deleteDiv { /*styling delete button div*/
