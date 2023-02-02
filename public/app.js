@@ -99,7 +99,6 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
     }
     const response = await fetch('/pokemons', options)
     const newData = await response.json()
-    window.location.reload();
 }
 
 //adds event listener to x attached to that pokemoncard, if clicked, deletes pokemon
