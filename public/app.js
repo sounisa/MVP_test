@@ -80,7 +80,7 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
 //adds event listener to x attached to that pokemoncard, if clicked, deletes pokemon
 function addListenerToDeleteButton(deleteBtn) {
     deleteBtn.addEventListener("click", function (e) {
-        document.querySelector('dialog').removeAttribute('open')
+        $(deleteBtn).closest('span').remove();
     })
 }
 
