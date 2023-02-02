@@ -5,11 +5,12 @@
   }
   
   .menu-container { /*MENU*/
-    color: #fff;
+    color: white;
     background-color: rgb(45, 45, 134);
     padding: 20px 0;
     display: flex;
-    justify-content: center;
+    justify-content:left;
+    padding-left: 2em;
   }
   
   .menu {
@@ -20,6 +21,7 @@
 
   .home-container { /*Pokedex logo button*/
     font-family: 'Pokemon Solid', sans-serif;
+    font-size:x-large;
   }
 
   .header-container { /*Where Pokedex word is*/
@@ -118,6 +120,10 @@
     font-size: 500%;
   }
 
+  .pokeImg {
+    width: 10%;
+    align-self: center;
+  }
 
   .deleteDiv { /*styling delete button div*/
     float:right;
@@ -148,8 +154,10 @@
   float: right;
   background: red;
   color: white;
-  top: -40px;
+  top: -20px;
   right: -650px;
   cursor: pointer;
 }
+
+
 
