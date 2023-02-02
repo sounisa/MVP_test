@@ -80,7 +80,7 @@ $('#close-postbtn').on('click', function () { //X on form
 })
 
 //POST
-async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
+const postNewPokemon = async (newPokeName, newPokeType, newPokeHp) => {
     let color = assignColor(newPokeType)
     let logo = assignLogo(newPokeType)
     const options = {
