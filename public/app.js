@@ -67,10 +67,10 @@ postBtn.addEventListener("click", function (e) {
     const newPokeHp = document.getElementById('pokemon-hp').value
     alert(`${newPokeType} Type Pokemon: ${newPokeName} with HP: ${newPokeHp} was added to your Pokedex`)
     $('#testCard').remove();
-    postNewPokemon(newPokeName, newPokeType, newPokeHp, color)
+    postNewPokemon(newPokeName, newPokeType, newPokeHp)
 });
 //POST
-async function postNewPokemon(newPokeName, newPokeType, newPokeHp, color) {
+async function postNewPokemon(newPokeName, newPokeType, newPokeH) {
     const options = {
         method: 'POST',
         headers: {
