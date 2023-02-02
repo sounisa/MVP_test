@@ -4,17 +4,21 @@ console.log(document.querySelectorAll(".x"))
 console.log(document.querySelector("#postbtn"))
 getData()
 
-$('#show').on('click', function () {
+$('#show').on('click', () => {
     $('.logo').hide();
     $('.center').show();
 })
 
 
-$('#close-postbtn').on('click', function () {
+$('#close-postbtn').on('click', () => {
     $('.center').hide();
     $('.logo').show();
     $('#show').show();
 })
+
+$('.home-container').on('click', () => {
+    window.location.reload(true);
+} )
 
 //GET ALL
 async function getData() {
@@ -22,7 +26,6 @@ async function getData() {
     const data = await response.json() 
     console.log(data)
     showAllPokemons(data)
-    addToData(data)
     //postData(data)
 }
 function showAllPokemons(data) {
@@ -63,8 +66,10 @@ postBtn.addEventListener("click", function (e) {
     const newPokeType = document.getElementById('pokemon-type').value
     const newPokeHp = document.getElementById('pokemon-hp').value
     alert(`${newPokeType} Type Pokemon: ${newPokeName} with HP: ${newPokeHp} was added to your Pokedex`)
-    $('#testCard').hide();
+    $('#testCard').remove();
     let color = assignColor(newPokeType)
+    console.log(newPokeType.toLowerCase())
+    console.log(color)
     postNewPokemon(newPokeName, newPokeType, newPokeHp, color)
 });
 //POST
@@ -79,7 +84,7 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp, color) {
             "name": newPokeName,
             "type": newPokeType,
             "hp": newPokeHp,
-            "color": color
+            "color": `${color}`
         })
     }
     const response = await fetch('/pokemons', options)

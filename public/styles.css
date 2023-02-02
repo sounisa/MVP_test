@@ -22,6 +22,7 @@
   .home-container { /*Pokedex logo button*/
     font-family: 'Pokemon Solid', sans-serif;
     font-size:x-large;
+    cursor: pointer;
   }
 
   .header-container { /*Where Pokedex word is*/
