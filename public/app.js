@@ -5,14 +5,14 @@ console.log(document.querySelectorAll(".x"))
 console.log(document.querySelector("#postbtn"))
 getData()
 
-$('#show').on('click', function () {
+$('#show').on('click', function () { //add new pokemon button
     $('.logo').hide();
     $('.center').show();
 })
 
 
 
-$('#close-postbtn').on('click', function () {
+$('#close-postbtn').on('click', function () { //X on form
     $('.center').hide();
     $('.logo').show();
     $('#show').show();
@@ -25,7 +25,6 @@ async function getData() {
     console.log(data)
     showAllPokemons(data)
     addToData(data)
-    //postData(data)
 }
 
 function showAllPokemons(data) {
@@ -73,6 +72,7 @@ postBtn.addEventListener("click", function (e) {
     const newPokeHp = document.getElementById('pokemon-hp').value
     alert(`${newPokeType} Type Pokemon: ${newPokeName} with HP: ${newPokeHp} was added to your Pokedex`)
     postNewPokemon(newPokeName, newPokeType, newPokeHp)
+    window.location.reload();
 });
 
 //POST
