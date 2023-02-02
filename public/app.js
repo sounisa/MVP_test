@@ -67,9 +67,6 @@ postBtn.addEventListener("click", function (e) {
     const newPokeHp = document.getElementById('pokemon-hp').value
     alert(`${newPokeType} Type Pokemon: ${newPokeName} with HP: ${newPokeHp} was added to your Pokedex`)
     $('#testCard').remove();
-    let color = assignColor(newPokeType)
-    console.log(newPokeType.toLowerCase())
-    console.log(color)
     postNewPokemon(newPokeName, newPokeType, newPokeHp, color)
 });
 //POST
@@ -84,7 +81,6 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp, color) {
             "name": newPokeName,
             "type": newPokeType,
             "hp": newPokeHp,
-            "color": color
         })
     }
     const response = await fetch('/pokemons', options)
@@ -110,26 +106,8 @@ async function deletePokemon(deleteBtn) {
 
 
 
-//assign color to pokemon type
-function assignColor(newPokeType){
-    if (newPokeType.toLowerCase() === "dark") {
-         return 'purple' //rgba(91,83,102,255)
-    } else if (newPokeType.toLowerCase() === 'water'){
-        return 'blue' //rgba(51,147,221,255)
-    } else if (newPokeType.toLowerCase() === 'fire') {
-        return 'red)' //rgba(218,44,51,255)
-    } else if (newPokeType.toLowerCase() === 'grass'){
-        return 'green' //rgba(2,145,58,255)
-    } else if (newPokeType.toLowerCase() === 'rock') {
-        return 'brown' //rgba(201,183,135,255)
-    } else if (newPokeType.toLowerCase() === 'normal') {
-        return 'gray' //rgba(146,155,163,255)
-    } else if (newPokeType.toLowerCase() === 'electric') {
-        return 'yellow' //rgba(251,210,0,255)
-    } else {
-        return 'black'
-    }
-}
+
+
 // //assign logo
 // function assignLogo(newPokeType){
 //     if (newPokeType.toLowerCase() === "dark") {

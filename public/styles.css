@@ -13,6 +13,9 @@
     padding-left: 2em;
   }
   
+  img {
+    width: 100px;
+  }
   .menu {
     width: 900px;
     display: flex;
@@ -21,7 +24,6 @@
 
   .home-container { /*Pokedex logo button*/
     font-family: 'Pokemon Solid', sans-serif;
-    font-size:x-large;
     cursor: pointer;
   }
 
@@ -91,6 +93,7 @@
   .all-pokemons-container {
     height: 400px;
     background-color: rgb(45, 45, 134);
+    text-decoration: rgba(157,207,228,255);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
