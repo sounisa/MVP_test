@@ -70,7 +70,7 @@ postBtn.addEventListener("click", function (e) {
     postNewPokemon(newPokeName, newPokeType, newPokeHp)
 });
 //POST
-async function postNewPokemon(newPokeName, newPokeType, newPokeH) {
+async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
     const options = {
         method: 'POST',
         headers: {
@@ -80,7 +80,7 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeH) {
         body: JSON.stringify({
             "name": newPokeName,
             "type": newPokeType,
-            "hp": newPokeHp,
+            "hp": newPokeHp
         })
     }
     const response = await fetch('/pokemons', options)
