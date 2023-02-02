@@ -21,7 +21,7 @@ app.route('/pokemons')
     .post(async (req, res) =>{
         let { body } = req
         try {
-            await client.query(`INSERT INTO pokemons (name, type, hp) VALUES ('${body.name}', '${body.type}', '${body.hp}')`); //creating
+            await client.query(`INSERT INTO pokemons (name, type, hp, color) VALUES ('${body.name}', '${body.type}', '${body.hp}', ${body.color})`); //creating
             res.status(200).type('application/json').json(body); 
         } catch (error) {
             res.status(500).type('text/plain').send(error.message)
