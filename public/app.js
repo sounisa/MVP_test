@@ -24,7 +24,7 @@ function showAllPokemons(data) {
 
         let pokeType = document.createElement('div')//Pokemon's Type
         pokeType.className = "pokeType"
-        pokeType.textContent = data[i].type
+        pokeType.textContent = data[i].type.toUpperCase()
 
         let pokeHp = document.createElement('div')//Pokemon's HP
         pokeHp.className = "pokeHp"
@@ -90,11 +90,11 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
             'content-type': 'application/json',
         },
         body: JSON.stringify({
-            "name": newPokeName,
-            "type": newPokeType,
-            "hp": newPokeHp,
-            "color": color,//calls assigncolor function
-            "img": logo //calls assignlogo function
+            "name": `${newPokeName}`,
+            "type": `${newPokeType}`,
+            "hp": `${newPokeHp}`,
+            "color": `${color}`,//calls assigncolor function
+            "img": `${logo}` //calls assignlogo function
         })
     }
     const response = await fetch('/pokemons', options)
