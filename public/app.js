@@ -81,8 +81,8 @@ $('#close-postbtn').on('click', function () { //X on form
 
 //POST
 async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
-    console.log(assignColor(newPokeType))
-    console.log(assignLogo(newPokeType))
+    let color = assignColor(newPokeType)
+    let logo = assignLogo(newPokeType)
     const options = {
         method: 'POST',
         headers: {
@@ -93,8 +93,8 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
             "name": newPokeName,
             "type": newPokeType,
             "hp": newPokeHp,
-            "color": assignColor(newPokeType),//calls assigncolor function
-            "img": assignLogo(newPokeType) //calls assignlogo function
+            "color": `${color}`,//calls assigncolor function
+            "img": `${logo}` //calls assignlogo function
         })
     }
     const response = await fetch('/pokemons', options)
