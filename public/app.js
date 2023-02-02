@@ -1,4 +1,5 @@
 
+const postBtn = document.querySelector("#postbtn")
 getData()
 
 //GET ALL
@@ -7,6 +8,7 @@ async function getData() {
     const data = await response.json() 
     console.log(data)
     showAllPokemons(data)
+    addToData(data)
     //postData(data)
 }
 
@@ -15,9 +17,6 @@ function showAllPokemons(data) {
         let pokeCard = document.createElement('span')
         pokeCard.className = "pokemon-card"
         pokeCard.id = data[i].name
-        //if data[i].type === 'Grass' background style = green
-        //let actualPoke = document.createElement('div')
-        //actualPoke.className = "pokemon"
         let pokeName = document.createElement('div')
         pokeName.className = "pokeName"
         pokeName.textContent = data[i].name
@@ -32,15 +31,34 @@ function showAllPokemons(data) {
         pokeCard.appendChild(pokeType)
         pokeCard.appendChild(pokeHp)
         pokeContainer.appendChild(pokeCard)
-        changeColor(data)
     }
 }
 
+//event listener on NEW pokemon button, get their values
+postBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const newPokeName = document.getElementById('pokemon-name').value
+    const newPokeType = document.getElementById('pokemon-type').value
+    const newPokeHp = document.getElementById('pokemon-hp').value
 
-function changeColor(data, pokeCard) {
-    for (i = 0; i < data.length; i++){
-        if (data[i].type.toLowerCase() === 'water'){
-            pokeCard.style.backgroundColor = "green";
-        }
+    postNewPokemon(newPokeName, newPokeType, newPokeHp)
+});
+
+async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            "name": newPokeName,
+            "type": newPokeType,
+            "hp": newPokeHp
+        })
     }
+    const response = await fetch('/pokemons', options)
+    const newData = await response.json()
 }
+
+
