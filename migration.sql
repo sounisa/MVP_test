@@ -5,6 +5,5 @@ CREATE TABLE pokemons(
    name VARCHAR NOT NULL,
    type VARCHAR NOT NULL,
    hp INT NOT NULL,
-   color VARCHAR NOT NULL,
-   img TEXT NOT NULL
+   color VARCHAR
 );

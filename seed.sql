@@ -1,1 +1,1 @@
-INSERT INTO pokemons (name, type, hp, color, img) VALUES ('Squirtle', 'water', 20, '#3393dd','water.png');
+INSERT INTO pokemons (name, type, hp, color) VALUES ('Squirtle', 'water', 20,'rgba(51,147,221,255)');
