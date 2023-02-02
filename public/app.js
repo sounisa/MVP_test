@@ -5,6 +5,19 @@ console.log(document.querySelectorAll(".x"))
 console.log(document.querySelector("#postbtn"))
 getData()
 
+$('#show').on('click', function () {
+    $('.logo').hide();
+    $('.center').show();
+})
+
+
+
+$('#close-postbtn').on('click', function () {
+    $('.center').hide();
+    $('.logo').show();
+    $('#show').show();
+})
+
 //GET ALL
 async function getData() {
     const response = await fetch('/pokemons')
@@ -52,6 +65,9 @@ function showAllPokemons(data) {
 //add New Pokemon Button, get values, post new pokemon
 postBtn.addEventListener("click", function (e) {
     e.preventDefault();
+    $('.center').hide();
+    $('.logo').show();
+    $('#show').show();
     const newPokeName = document.getElementById('pokemon-name').value
     const newPokeType = document.getElementById('pokemon-type').value
     const newPokeHp = document.getElementById('pokemon-hp').value
@@ -93,6 +109,7 @@ async function deletePokemon(deleteBtn) {
         method: 'DELETE'
     }
     const response = await fetch(`/pokemons/${deleteBtn.id}`, options)
-    const sqlQuery = await response.json() 
+    const dataAfterDelete = await response.json() 
+    console.log(dataAfterDelete)
 }
 

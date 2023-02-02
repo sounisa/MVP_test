@@ -18,53 +18,51 @@
     <div class='menu-container'>
         <div class='menu'>
           <div class='home-container'>Pokedex</div>
-          <div id="searchBar">
-            <input type="text" name='search'>
-            <button id="search-btn">Search</button>
-          </div>
         </div>
     </div>
     <div class='header-container'>
         <div class='logo'><span class ="first-letter">P</span>okedex</div>
     </div>
-        <div id="post-pokemon" class =post-container>
-            <form id="newPokemonForm">
-                <div id="nameDiv">
-                    <label for="pokemon-name">Pokemon's Name</label>
-                    <input id="pokemon-name" type="text" class="validate">
-                </div>
-                <div id="typeDiv">
-                    <label for="pokemon-type">Pokemon Type:</label>
-                    <select name="pokemon-type" id="pokemon-type">
-                        <option value="Water">Water</option>
-                        <option value="Normal">Normal</option>
-                        <option value="Ground">Ground</option>
-                        <option value="Electric">Electric</option>
-                        <option value="Poison">Poison</option>
-                        <option value="Grass">Grass</option>
-                        <option value="Ghost">Ghost</option>
-                        <option value="Fire">Fire</option>
-                    </select>
-                </div>
-                <div id="hpDiv">
-                    <label for="pokemon-hp">Pokemon's HP</label>
-                    <select name="pokemon-hp" id="pokemon-hp">
-                        <option value="10">10 HP</option>
-                        <option value="20">20 HP</option>
-                        <option value="30">30 HP</option>
-                        <option value="40">40 HP</option>
-                        <option value="50">50 HP</option>
-                        <option value="60">60 HP</option>
-                        <option value="70">70 HP</option>
-                        <option value="80">80 HP</option>
-                        <option value="90">90 HP</option>
-                    </select>
-                </div>
-                <div id="postbtnDiv">
-                    <button id="postbtn" type="submit">Submit</button>
-                </div> 
-            </form>
-        </div>     
+    <div class="center hideform">
+    <button id="close-postbtn" style="float: right;">X</button>
+    <form action="newPokemonForm">
+        <div id="nameDiv">
+            <label for="pokemon-name">Pokemon's Name</label>
+            <input id="pokemon-name" type="text" class="validate">
+        </div>
+        <div id="typeDiv">
+            <label for="pokemon-type">Pokemon Type:</label>
+            <select name="pokemon-type" id="pokemon-type">
+                <option value="Water">Water</option>
+                <option value="Normal">Normal</option>
+                <option value="Ground">Ground</option>
+                <option value="Electric">Electric</option>
+                <option value="Poison">Poison</option>
+                <option value="Grass">Grass</option>
+                <option value="Ghost">Ghost</option>
+                <option value="Fire">Fire</option>
+            </select>
+        </div>
+        <div id="hpDiv">
+            <label for="pokemon-hp">Pokemon's HP</label>
+            <select name="pokemon-hp" id="pokemon-hp">
+                <option value="10">10 HP</option>
+                <option value="20">20 HP</option>
+                <option value="30">30 HP</option>
+                <option value="40">40 HP</option>
+                <option value="50">50 HP</option>
+                <option value="60">60 HP</option>
+                <option value="70">70 HP</option>
+                <option value="80">80 HP</option>
+                <option value="90">90 HP</option>
+            </select>
+        </div>
+        <div id="postbtnDiv">
+            <button id="postbtn" type="submit">Submit</button>
+        </div> 
+        </form>
+    </div>
+    <button id="show">Add New Pokemon</button>    
     <div class="DivToScroll">
         <div class="DivWithScroll">
             <div class='all-pokemons-container'>
@@ -91,3 +89,4 @@
     </div>
   </body>
 </html>
+

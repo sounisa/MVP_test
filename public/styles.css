@@ -44,9 +44,26 @@
     letter-spacing: -.08em;
   }
   
-  .view-all {
-    margin-bottom: 0;
-    align-self:baseline;
+  .center {
+    margin: auto;
+    width: 60%;
+    height: 269px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .hideform {
+    display: none;
+  }
+  
+  #close-postbtn{
+    width:20px;
+    position: relative;
+    float: right;
+    background: red;
+    color: white;
+    cursor: pointer;
   }
 
   .DivToScroll{   
@@ -76,9 +93,6 @@
     flex-wrap: wrap;
   }
 
-  .post-container {
-    justify-content: center;
-  }
   
   .pokemon-card {
     background-color: white;
@@ -138,3 +152,4 @@
   right: -650px;
   cursor: pointer;
 }
+
