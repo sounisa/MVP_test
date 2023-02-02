@@ -49,7 +49,7 @@ function showAllPokemons(data) {
         pokeCard.appendChild(pokeHp)
 
         let color = data[i].color
-        pokeCard.style.color = data[i].color //changes color of font based off pokemon type
+        pokeCard.style.color = `#${data[i].color}` //changes color of font based off pokemon type
         pokeContainer.appendChild(pokeCard)
     }
 }
@@ -125,19 +125,19 @@ async function deletePokemon(deleteBtn) {
 //assign color to pokemon type
 function assignColor(newPokeType){
     if (newPokeType.toLowerCase() === "dark") {
-         return '#5b5366' //rgba(91,83,102,255)
+         return '5b5366' //rgba(91,83,102,255)
     } else if (newPokeType.toLowerCase() === 'water'){
-        return '#3393dd' //rgba(51,147,221,255)
+        return '3393dd' //rgba(51,147,221,255)
     } else if (newPokeType.toLowerCase() === 'fire') {
-        return '#da2c33' //rgba(218,44,51,255)
+        return 'da2c33' //rgba(218,44,51,255)
     } else if (newPokeType.toLowerCase() === 'grass'){
-        return '#02913a' //rgba(2,145,58,255)
+        return '02913a' //rgba(2,145,58,255)
     } else if (newPokeType.toLowerCase() === 'rock') {
-        return '#c9b787' //rgba(201,183,135,255)
+        return 'c9b787' //rgba(201,183,135,255)
     } else if (newPokeType.toLowerCase() === 'normal') {
-        return '#929ba3' //rgba(146,155,163,255)
+        return '929ba3' //rgba(146,155,163,255)
     } else if (newPokeType.toLowerCase() === 'electric') {
-        return '#fbd200' //rgba(251,210,0,255)
+        return 'fbd200' //rgba(251,210,0,255)
     } else {
         return 'black'
     }
