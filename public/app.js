@@ -1,8 +1,6 @@
 
 const postBtn = document.querySelector("#postbtn")
 let deleteThis = document.querySelectorAll(".x")
-console.log(document.querySelectorAll(".x"))
-console.log(document.querySelector("#postbtn"))
 getData()
 
 $('#show').on('click', function () { //add new pokemon button
@@ -85,6 +83,10 @@ postBtn.addEventListener("click", function (e) {
 
 //POST
 async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
+    let color = assignColor(newPokeType)
+    let logo = assignLogo(newPokeType)
+    console.log(color)
+    console.log(logo)
     const options = {
         method: 'POST',
         headers: {
