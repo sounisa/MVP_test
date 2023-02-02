@@ -40,7 +40,7 @@ postBtn.addEventListener("click", function (e) {
     const newPokeName = document.getElementById('pokemon-name').value
     const newPokeType = document.getElementById('pokemon-type').value
     const newPokeHp = document.getElementById('pokemon-hp').value
-
+    alert(`${newPokeType} Type Pokemon: ${newPokeName} with HP: ${newPokeHp} was added to your Pokedex`)
     postNewPokemon(newPokeName, newPokeType, newPokeHp)
 });
 
