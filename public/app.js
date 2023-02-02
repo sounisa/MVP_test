@@ -84,7 +84,7 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp, color) {
             "name": newPokeName,
             "type": newPokeType,
             "hp": newPokeHp,
-            "color": `${color}`
+            "color": color
         })
     }
     const response = await fetch('/pokemons', options)

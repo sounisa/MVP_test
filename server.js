@@ -42,7 +42,7 @@ app.route('/pokemons/:id')
                     res.status(200).type('application/JSON').json(onePokemon.rows)
                 }                      
             } catch (error) {
-                res.status(500).type('text/plain').send(error)
+                res.status(500).type('text/plain').send(error.message)
             }
         }  
     })
