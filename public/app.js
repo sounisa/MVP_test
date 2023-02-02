@@ -81,17 +81,18 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
 function addListenerToDeleteButton(deleteBtn) {
     deleteBtn.addEventListener("click", function (e) {
         $(deleteBtn).closest('span').remove();
+        deletePokemon(deleteBtn)
     })
 }
 
 
 
 //DELETE 1
-async function deletePokemon(id) {
+async function deletePokemon(deleteBtn) {
     const options = {
         method: 'DELETE'
     }
-    const response = await fetch(`/pokemons/${id}`, options)
+    const response = await fetch(`/pokemons/${deleteBtn.id}`, options)
     const sqlQuery = await response.json() 
 }
 
