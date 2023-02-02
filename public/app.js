@@ -1,5 +1,8 @@
 
 const postBtn = document.querySelector("#postbtn")
+let deleteThis = document.querySelectorAll(".x")
+console.log(document.querySelectorAll(".x"))
+console.log(document.querySelector("#postbtn"))
 getData()
 
 //GET ALL
@@ -14,19 +17,31 @@ async function getData() {
 
 function showAllPokemons(data) {
     for (let i = 0; i < data.length; i++) {
-        let pokeCard = document.createElement('span')
+
+        let pokeCard = document.createElement('span') //PokemonCard 
         pokeCard.className = "pokemon-card"
         pokeCard.id = data[i].name
-        let pokeName = document.createElement('div')
+
+        let pokeName = document.createElement('div')//Pokemon's Name
         pokeName.className = "pokeName"
         pokeName.textContent = data[i].name
-        let pokeType = document.createElement('div')
+
+        let pokeType = document.createElement('div')//Pokemon's Type
         pokeType.className = "pokeType"
         pokeType.textContent = data[i].type
-        let pokeHp = document.createElement('div')
+
+        let pokeHp = document.createElement('div')//Pokemon's HP
         pokeHp.className = "pokeHp"
         pokeHp.textContent = `${data[i].hp} HP`
+
+        let deleteBtn = document.createElement('button')//delete button
+        deleteBtn.className= "x"
+        deleteBtn.id = data[i].id
+        deleteBtn.textContent = "X"
+        addListenerToDeleteButton(deleteBtn)//add listener to each delete button
+
         let pokeContainer = document.querySelector('.all-pokemons-container')
+        pokeCard.appendChild(deleteBtn)
         pokeCard.appendChild(pokeName)
         pokeCard.appendChild(pokeType)
         pokeCard.appendChild(pokeHp)
@@ -34,7 +49,7 @@ function showAllPokemons(data) {
     }
 }
 
-//event listener on NEW pokemon button, get their values
+//add New Pokemon Button, get values, post new pokemon
 postBtn.addEventListener("click", function (e) {
     e.preventDefault();
     const newPokeName = document.getElementById('pokemon-name').value
@@ -44,6 +59,7 @@ postBtn.addEventListener("click", function (e) {
     postNewPokemon(newPokeName, newPokeType, newPokeHp)
 });
 
+//POST
 async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
     const options = {
         method: 'POST',
@@ -61,4 +77,21 @@ async function postNewPokemon(newPokeName, newPokeType, newPokeHp) {
     const newData = await response.json()
 }
 
+//adds event listener to x attached to that pokemoncard, if clicked, deletes pokemon
+function addListenerToDeleteButton(deleteBtn) {
+    deleteBtn.addEventListener("click", function (e) {
+        document.querySelector('dialog').removeAttribute('open')
+    })
+}
+
+
+
+//DELETE 1
+async function deletePokemon(id) {
+    const options = {
+        method: 'DELETE'
+    }
+    const response = await fetch(`/pokemons/${id}`, options)
+    const sqlQuery = await response.json() 
+}
 

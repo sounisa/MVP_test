@@ -75,14 +75,20 @@
     justify-content: center;
     flex-wrap: wrap;
   }
+
+  .post-container {
+    justify-content: center;
+  }
   
   .pokemon-card {
     background-color: white;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    text-align: center;
     width: 700px;
     height: 300px;
-    
+    border: 10px solid rgb(45, 45, 134);
     
   }
 
@@ -96,6 +102,11 @@
     font-family: 'Pokemon Solid', sans-serif;
     letter-spacing: .05em;
     font-size: 500%;
+  }
+
+
+  .deleteDiv { /*styling delete button div*/
+    float:right;
   }
 
   .footer {
@@ -117,3 +128,13 @@
   width: 300px;
 }
 
+.x { /*DELETE BUTTON*/
+  width:20px;
+  position: relative;
+  float: right;
+  background: red;
+  color: white;
+  top: -40px;
+  right: -650px;
+  cursor: pointer;
+}
