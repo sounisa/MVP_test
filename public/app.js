@@ -130,5 +130,3 @@ async function deletePokemon(deleteBtn) {
 //     }
     
 // }
-
-

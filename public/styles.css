@@ -87,6 +87,47 @@
     font-size: x-large;
   }
 
+  .editFormTitle {
+    padding-bottom: .5em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .editHideForm {
+    margin: auto;
+    width: 60%;
+    height: 269px;
+    padding: 20px;
+    padding-top: 2em;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display:none;
+  }
+
+ #editBtnDiv {
+  padding-top: 1em;
+ }
+
+ .editFormTitle {
+  font-size: 20px;
+ }
+
+ .nameOfPokemonEditing {
+  font-family: 'Pokemon Solid', sans-serif;
+  letter-spacing: .1em;
+  font-size: 70px;
+ }
+
+  #close-editbtn {
+    width:20px;
+    position: relative;
+    float: right;
+    background: red;
+    color: white;
+    cursor: pointer;
+    top: -155px;
+    right:-10px;
+  }
   .DivToScroll{   
     width:auto;
     height:max-content;

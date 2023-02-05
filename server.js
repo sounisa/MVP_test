@@ -1,95 +1,93 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 8000;
-const client = require('./db')
+const express = require('express'); 
+const client = require('./db');
+
 const dotenv = require("dotenv");
-dotenv.config()
-const cors = require("cors")
+dotenv.config();
 
-app.use(cors())
-app.use(express.json()) 
+const app = express();
+const PORT = process.env.PORT || 8000
 
-app.route('/pokemons')
-    .get(async (req, res) =>{
-        try {
-            let allPokemons = await client.query("SELECT * FROM pokemons")
-            res.status(200).type('application/JSON').json(allPokemons.rows)
-        } catch (error) {
-            res.status(500).type('text/plain').send(error.message)
-        }
-    })
-    .post(async (req, res) =>{
-        let { body } = req
-        try {
-            await client.query(`INSERT INTO pokemons (name, type, hp) VALUES ('${body.name}', '${body.type}', '${body.hp}')`); //creating
-            res.status(200).type('application/json').json(body); 
-        } catch (error) {
-            res.status(500).type('text/plain').send(error.message)
-        }
-    })
-
-app.route('/pokemons/:id')
-    .get(async (req, res) => {
-        let { id } = req.params
-        if (isNaN(id)) {
-            res.status(404).type('text/plain').send('Not found')
-        } else { 
-            try { 
-                let onePokemon = await client.query(`SELECT * FROM pokemons WHERE id = ${id}`); 
-                if (onePokemon.rows.length === 0) { //if id doesn't exist
-                    res.status(404).type('text/plain').send('Not found')
-                } else {
-                    res.status(200).type('application/JSON').json(onePokemon.rows)
-                }                      
-            } catch (error) {
-                res.status(500).type('text/plain').send(error.message)
-            }
-        }  
-    })
-    
-    .patch(async (req, res) => {
-        const { id } = req.params
-        const { body } = req
-        try {
-            const result = await client.query(`SELECT * FROM pokemons WHERE id = ${id}`); 
-            if (result.rows.length === 0) {
-                res.status(404).type('text/plain').send('Not found')
-            } else {
-                for (key in body) { 
-                    await client.query(`UPDATE pokemons SET ${key} = '${body[key]}' WHERE id = ${id}`); 
-                }
-                const updatedPokemon = await client.query(`SELECT * FROM pokemons WHERE id = ${id}`); 
-                res.status(200).type('application/JSON').json(updatedPokemon.rows) 
-            }   
-        } catch (error) {
-            console.log(error.stack)
-            res.status(500).type('text/plain').send(error.message)
-        } 
-    })
-
-    .delete(async (req, res) => {
-        const { id } = req.params
-        if (isNaN(id)) {
-            res.status(404).type('text/plain').send('Not found')
-        } else { 
-            try { 
-                const result = await client.query(`SELECT * FROM pokemons WHERE id = ${id}`); 
-                if (result.rows.length === 0) { 
-                    res.status(404).type('text/plain').send('Not found')
-                } else {
-                    const deletePokemon = await client.query(`DELETE FROM pokemons WHERE id = ${id}`); 
-                    res.status(200).type('application/JSON').json(result.rows) 
-                }                      
-            } catch (error) {
-                res.status(500).type('text/plain').send(error)
-            }
-        }
-    })
+app.use(express.json());
+app.use(express.static("public"));
 
 
-app.use(express.static('./public'));
+//MIDDLEWARE
+app.use(express.json())
+app.use(express.static("public"));
 
+//ROUTES
+//TEST
+app.get(`/`, (req, res) => {
+    res.send(`Testing`)
+});
 
-app.listen(port,() => {
-    console.log(`Listening on Port: ${port}`)
+//GET ALL
+app.get(`/pokemons`, async (req, res) => {
+    const {rows} = await client.query(`select * from pokemons order by id ASC`)
+    res.status(200).type('application/JSON').send(rows)
 })
+
+//POST 1
+app.post(`/pokemons`, async (req, res) => {
+    const {name, type, hp} = req.body
+    const {rows} = await client.query(`insert into pokemons (name, type, hp) values ('${name}', '${type}', ${hp}) returning *`)
+    res.status(201).type('application/JSON').send(rows)
+})
+
+
+//GET 1
+app.get(`/pokemons/:id`, async (req, res) => {
+    const {id} = req.params
+    if (isNaN(id)) { //if not a number
+        res.status(404).type('text/plain').send('Please Input A Number For The ID') //error
+    } else { 
+    const {rows} = await client.query(`select * from pokemons where id = ${id}`)//query
+        if (rows.length === 0) { //then if id doesnt exist
+            res.status(404).type('text/plain').send('Pokemon Not Found') //error
+        } else {
+            res.status(200).type('application/JSON').send(rows) //send donut w/that id
+        }
+    }
+})
+
+//PUT 1
+app.put(`/pokemons/:id`, async (req, res) => {
+    const {id} = req.params
+    const {name, type, hp} = req.body
+    if (isNaN(id)) { //if not a number
+        res.status(404).type('text/plain').send('Please Input A Number For The ID') //error
+    } else { 
+    const {rows} = await client.query(`update pokemons set name = '${name}', type = '${type}', hp = ${hp} where id = ${id} returning *`)
+        if (rows.length === 0) { //then if id doesnt exist
+            res.status(404).type('text/plain').send('Pokemon Not Found') //error
+        } else {
+            res.status(200).type('application/JSON').send(rows) //send donut that was updated
+        }
+    }
+})
+
+
+//DELETE 1
+app.delete(`/pokemons/:id`, async (req, res) => {
+    const {id} = req.params
+    if (isNaN(id)) { //if not a number
+        res.status(404).type('text/plain').send('Please Input A Number For The ID') //error
+    } else { 
+    const {rows} = await client.query(`delete from pokemons where id = ${id} returning *`)
+        if (rows.length === 0) { //then if id doesnt exist
+            res.status(404).type('text/plain').send('Donut Not Found') //error
+        } else {
+            res.status(200).type('text/plain').send(`This pokemon was deleted ${JSON.stringify(rows)}`) //send donut that was updated
+        }
+    }
+})
+
+app.use((req, res) => {
+    res.status(404).type('text/plain').send('Not found')
+})
+//listen for PORT
+app.listen(PORT, () => {
+    console.log(`Listening on Port: ${PORT}`)
+});
+
+
