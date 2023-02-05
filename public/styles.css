@@ -106,9 +106,12 @@
 
  #editBtnDiv {
   padding-top: 1em;
-  width: 50px
+  align-content: center;
  }
 
+.edit {
+  width: 100px;
+}
 
  .editFormTitle {
   font-size: 20px;
