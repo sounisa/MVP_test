@@ -8,6 +8,7 @@ let editSubmitBtn = document.querySelector('#editBtnSubmit')
 getData()
 
 $('#show').on('click', () => {
+    $('#show').hide();
     $('.logo').hide();
     $('.center').show();
 })
