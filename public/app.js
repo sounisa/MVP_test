@@ -63,6 +63,7 @@ function showAllPokemons(data) {
         editBtn.textContent = "Edit Pokemon"
         addListenerToEditButton(editBtn)//add listener to edit button
         let pokeContainer = document.querySelector('.all-pokemons-container')
+        pokeCard.appendChild(editBtn)
         pokeCard.appendChild(deleteBtn)
         pokeCard.appendChild(pokeName)
         pokeCard.appendChild(pokeType)
