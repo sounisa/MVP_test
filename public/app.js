@@ -1,7 +1,10 @@
 const postBtn = document.querySelector("#postbtn")
 let deleteThis = document.querySelectorAll(".x")
-console.log(document.querySelectorAll(".x"))
-console.log(document.querySelector("#postbtn"))
+let editForm = document.querySelector('.editHideForm')
+let pokemonEditing = document.querySelector('.nameOfPokemonEditing')
+let editSubmitBtn = document.querySelector('#editBtnSubmit')
+
+
 getData()
 
 $('#show').on('click', () => {
@@ -10,8 +13,8 @@ $('#show').on('click', () => {
 })
 
 
-$('#close-postbtn').on('click', () => {
-    $('.center').hide();
+$('#close-editbtn').on('click', () => {
+    $('.editHideForm').hide();
     $('.logo').show();
     $('#show').show();
 })
@@ -19,6 +22,12 @@ $('#close-postbtn').on('click', () => {
 $('.home-container').on('click', () => {
     window.location.reload(true);
 } )
+
+$('#close-postbtn').on('click', () => {
+    $('.center').hide();
+    $('.logo').show();
+    $('#show').show();
+})
 
 //GET ALL
 async function getData() {
@@ -47,6 +56,12 @@ function showAllPokemons(data) {
         deleteBtn.id = data[i].id
         deleteBtn.textContent = "X"
         addListenerToDeleteButton(deleteBtn)//add listener to each delete button
+        let editBtn = document.createElement('button')//edit button
+        editBtn.className= "edit"
+        editBtn.id = data[i].id
+        editBtn.title = data[i].name
+        editBtn.textContent = "Edit Pokemon"
+        addListenerToEditButton(editBtn)//add listener to edit button
         let pokeContainer = document.querySelector('.all-pokemons-container')
         pokeCard.appendChild(deleteBtn)
         pokeCard.appendChild(pokeName)
@@ -106,8 +121,49 @@ async function deletePokemon(deleteBtn) {
 }
 
 
+function addListenerToEditButton(editBtn) {
+    editBtn.addEventListener("click", function (e) {
+        $('.editHideForm').show()
+        $('.logo').hide();
+        $('#show').hide();
+        editForm.id = editBtn.id
+        pokemonEditing.textContent = editBtn.title
+    })
+}
+
+editSubmitBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    $('.editHideForm').hide();
+    $('.logo').show();
+    $('#show').show();
+    const editPokeName = document.getElementById('editPokemonName').value
+    const editPokeType = document.getElementById('editPokemonType').value
+    const editPokeHp = document.getElementById('editPokemonHp').value
+    const idOfEditPokemon = editForm.id
+    //alert(`${newPokeType} Type Pokemon: ${newPokeName} with HP: ${newPokeHp} was added to your Pokedex`)
+    editPokemon(editPokeName, editPokeType, editPokeHp, idOfEditPokemon)
+});
 
 
+async function editPokemon(editPokeName, editPokeType, editPokeHp, idOfEditPokemon) {
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            "name": editPokeName,
+            "type": editPokeType,
+            "hp": editPokeHp
+        })
+    }
+    console.log(options.body)
+    const response = await fetch(`/pokemons/${idOfEditPokemon}`, options)
+    const newData = await response.json()
+    console.log(newData)
+    window.location.reload(true);
+}
 
 // //assign logo
 // function assignLogo(newPokeType){
